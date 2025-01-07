@@ -4,6 +4,7 @@
 Version 1.1.31 under development
 --------------------------------
 - No changes yet
+- Enh #4552: Added support for PDO::ATTR_STRINGIFY_FETCHES
 
 Version 1.1.30 October 14, 2024
 --------------------------------

@@ -21,6 +21,7 @@ class CDbStatePersisterTest extends CTestCase
 					'username' => 'test',
 					'password' => 'test',
 					'emulatePrepare' => true,
+					'stringifyFetches' => false,
 					'charset' => 'utf8',
 					'enableParamLogging' => true,
 				),

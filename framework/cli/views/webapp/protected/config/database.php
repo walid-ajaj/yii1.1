@@ -7,6 +7,7 @@ return array(
 	/*
 	'connectionString' => 'mysql:host=localhost;dbname=testdrive',
 	'emulatePrepare' => true,
+	'stringifyFetches' => false,
 	'username' => 'root',
 	'password' => '',
 	'charset' => 'utf8',

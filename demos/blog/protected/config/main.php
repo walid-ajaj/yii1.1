@@ -35,6 +35,7 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=blog',
 			'emulatePrepare' => true,
+			'stringifyFetches' => false,
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',

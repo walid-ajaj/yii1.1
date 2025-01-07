@@ -15,6 +15,7 @@ return CMap::mergeArray(
 			'db'=>array(
 				'connectionString' => 'mysql:host=localhost;dbname=blog-test',
 				'emulatePrepare' => true,
+				'stringifyFetches' => false,
 				'username' => 'root',
 				'password' => '',
 				'charset' => 'utf8',

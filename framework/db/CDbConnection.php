@@ -217,6 +217,11 @@ class CDbConnection extends CApplicationComponent
 	 */
 	public $emulatePrepare;
 	/**
+	 * @var boolean whether to turn on stringify fetches.
+	 * The default value is null, which will not change the ATTR_STRINGIFY_FETCHES value of PDO.
+	 */
+	public $stringifyFetches;
+	/**
 	 * @var boolean whether to log the values that are bound to a prepare SQL statement.
 	 * Defaults to false. During development, you may consider setting this property to true
 	 * so that parameter values bound to SQL statements are logged for debugging purpose.
@@ -463,6 +468,8 @@ class CDbConnection extends CApplicationComponent
 			$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,$this->emulatePrepare);
 		if(PHP_VERSION_ID >= 80100 && strncasecmp($this->getDriverName(),'sqlite',6)===0)
 			$pdo->setAttribute(PDO::ATTR_STRINGIFY_FETCHES, true);
+		else if(PHP_VERSION_ID >= 80100 && $this->stringifyFetches!==null && constant('PDO::ATTR_STRINGIFY_FETCHES'))
+			$pdo->setAttribute(PDO::ATTR_STRINGIFY_FETCHES, $this->stringifyFetches);
 		if($this->charset!==null)
 		{
 			$driver=strtolower($pdo->getAttribute(PDO::ATTR_DRIVER_NAME));

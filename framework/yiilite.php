@@ -8741,6 +8741,7 @@ class CDbConnection extends CApplicationComponent
 	public $autoConnect=true;
 	public $charset;
 	public $emulatePrepare;
+	public $stringifyFetches;
 	public $enableParamLogging=false;
 	public $enableProfiling=false;
 	public $tablePrefix;
@@ -8864,6 +8865,8 @@ class CDbConnection extends CApplicationComponent
 			$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,$this->emulatePrepare);
 		if(PHP_VERSION_ID >= 80100 && strncasecmp($this->getDriverName(),'sqlite',6)===0)
 			$pdo->setAttribute(PDO::ATTR_STRINGIFY_FETCHES, true);
+		else if(PHP_VERSION_ID >= 80100 && $this->stringifyFetches!==null && constant('PDO::ATTR_STRINGIFY_FETCHES'))
+			$pdo->setAttribute(PDO::ATTR_STRINGIFY_FETCHES, $this->stringifyFetches);
 		if($this->charset!==null)
 		{
 			$driver=strtolower($pdo->getAttribute(PDO::ATTR_DRIVER_NAME));
